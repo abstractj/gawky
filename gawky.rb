@@ -1,11 +1,15 @@
 require 'github_api'
 require 'term/ansicolor'
+require 'json'
 
-connection = Github.new oauth_token: 'c2a21e0dbea1d0f3f5d7a1821b63ed55f4d87f38'
+
+configuration = JSON.load(IO.read(ENV['HOME'] + '/.gawky.json'))
+
+connection = Github.new oauth_token: configuration['token']
 date_now = Date.today
-acceptable = 7
+acceptable = configuration['maxElapsedDays']
 
-issues = connection.issues.list(:org => 'aerogear', :filter => 'all', :auto_pagination => true, :sort => 'created')
+issues = connection.issues.list(:org => ARGV[0], :filter => 'all', :auto_pagination => true, :sort => 'created')
 issues.each do |issue|
   if issue["pull_request"]
     date = DateTime.parse(issue.created_at)
