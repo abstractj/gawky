@@ -8,7 +8,7 @@ Gem::Specification.new do |spec|
   spec.version       = Gawky::VERSION
   spec.authors       = ["Bruno Oliveira"]
   spec.email         = ["bruno@abstractj.org"]
-  spec.summary       = %q{A stupid simple console tool to check pull requests}
+  spec.summary       = %q{A tiny and simple console tool for pull requests}
   spec.homepage      = "https://github.com/abstractj/gawky"
   spec.license       = "MIT"
 
