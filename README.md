@@ -20,7 +20,12 @@ For OSx users
     $ brew install brew-gem
     $ brew gem gawky
 
-Rename the sample.json file to gawky.json and copy to your HOME directory
+Rename the sample.json file to gawky.json and copy to your HOME directory. Please make sure to change the values:
+
+    {
+       "token":"42",
+       "maxElapsedDays":5
+    }
 
 ## Usage
 
@@ -30,7 +35,7 @@ Rename the sample.json file to gawky.json and copy to your HOME directory
 
 1. Fork it ( https://github.com/[my-github-username]/gawky/fork )
 2. Create your feature branch (`git checkout -b my-new-feature`)
-3. Add unit tests, because yeah it's missing
+3. Add unit tests, because the project doesn't have it. Yeah, bring me a torch.
 4. Commit your changes (`git commit -am 'Add some feature'`)
 5. Push to the branch (`git push origin my-new-feature`)
 6. Create a new Pull Request
