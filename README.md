@@ -3,6 +3,13 @@
 
 A tiny and simple console tool for pull requests
 
+## Requirements
+
+- Ruby 1.9 or superior
+- Install bundler
+
+    `$ gem install bundler`
+
 ## Installation
 
 Clone the repository
