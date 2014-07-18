@@ -9,6 +9,7 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Bruno Oliveira"]
   spec.email         = ["bruno@abstractj.org"]
   spec.summary       = %q{A tiny and simple console tool for pull requests}
+  spec.description   = %q{Pull request console wrapper}
   spec.homepage      = "https://github.com/abstractj/gawky"
   spec.license       = "MIT"
 
