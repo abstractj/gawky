@@ -1,6 +1,6 @@
 require 'gawky/version'
 require 'github_api'
-require 'term/ansicolor'
+require 'color'
 require 'json'
 
 
@@ -9,8 +9,8 @@ module Gawky
   class Runner
 
     configuration = JSON.load(IO.read(ENV['HOME'] + '/.gawky.json'))
-    @@github = Github.new oauth_token: configuration['token']
     @@date_now = Date.today
+    @@github = Github.new oauth_token: configuration['token']
     @@acceptable = configuration['maxElapsedDays']
 
     def run
@@ -20,9 +20,9 @@ module Gawky
           date = DateTime.parse(issue.created_at)
           days_passed = (@@date_now - date).to_i
           if days_passed > @@acceptable
-            puts "\e[31m#{date.strftime('%e %b %Y %H:%M %p')}\e[0m  - \e[34m#{issue.user.login}\e[0m - \e[33m#{issue.title}\e[0m - \e[34m#{issue.html_url}\e[0m"
+            puts Color.new(date, issue.user.login, issue.title, issue.html_url).warning
           else
-            puts "\e[32m#{date.strftime('%e %b %Y %H:%M %p')}\e[0m  - \e[34m#{issue.user.login}\e[0m - \e[33m#{issue.title}\e[0m - \e[34m#{issue.html_url}\e[0m"
+            puts Color.new(date, issue.user.login, issue.title, issue.html_url).green
           end
         end
       end
