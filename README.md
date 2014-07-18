@@ -25,6 +25,7 @@ Or install it yourself as:
 For OSx users
 
     $ brew install brew-gem
+    $ git clone https://github.com/abstractj/gawky.git && cd gawky && bundle install //Workaround until fix this [issue](https://github.com/abstractj/gawky/issues/1)
     $ brew gem gawky
 
 Copy the sample.json file to gawky.json at your HOME directory
