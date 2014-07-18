@@ -1,6 +1,9 @@
 #!/usr/bin/env ruby
 # -*- mode: ruby -*-
 
+lib_dir = File.join(File.dirname(__FILE__), '..', 'lib')
+$LOAD_PATH.unshift lib_dir if File.directory?(lib_dir)
+
 require 'gawky'
 
 gawky = Gawky::Runner.new
