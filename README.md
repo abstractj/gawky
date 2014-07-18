@@ -35,7 +35,7 @@ Please make sure to change the values:
 
 ## Usage
 
-    $ gawky or gawky [organization name]
+    $ gawky [organization name]
 
 ## Contributing
 
