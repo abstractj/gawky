@@ -20,10 +20,14 @@ For OSx users
     $ brew install brew-gem
     $ brew gem gawky
 
-Rename the sample.json file to gawky.json and copy to your HOME directory. Please make sure to change the values:
+Copy the sample.json file to gawky.json at your HOME directory
+
+    $ cp sample.json $HOME/.gawky.json
+
+Please make sure to change the values:
 
     {
-       "token":"42",
+       "token":"42", //GitHub token
        "maxElapsedDays":5
     }
 
