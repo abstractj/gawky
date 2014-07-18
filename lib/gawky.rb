@@ -13,7 +13,7 @@ module Gawky
     exit
   end
 
-  def organization
+  def self.organization
     ARGV.first
   end
   def self.github
