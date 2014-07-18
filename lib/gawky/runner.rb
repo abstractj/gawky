@@ -1,10 +1,15 @@
 module Gawky
   class Runner
+
     def initialize
       @date_now = Date.today
     end
+
     def run
-      issues = Gawky.github.issues.list(:org => ARGV[0], :filter => 'all', :auto_pagination => true, :sort => 'created')
+      issues = Gawky.github.issues.list(:org => ARGV[0],
+                                        :filter => 'all',
+                                        :auto_pagination => true,
+                                        :sort => 'created')
       issues.each do |issue|
         if issue['pull_request']
           date = DateTime.parse(issue.created_at)
@@ -16,7 +21,9 @@ module Gawky
         end
       end
     end
-    private
+
+  private
+
     def elapsed_time(date)
       (@date_now - date).to_i
     end
