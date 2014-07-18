@@ -1,4 +1,5 @@
 # Gawky
+![](http://photon.abstractj.org/gawky.jpg)
 
 A tiny and simple console tool for pull requests
 
@@ -18,7 +19,7 @@ Rename the sample.json file to gawky.json and copy to your HOME directory
 
 ## Usage
 
-$ bin/gawky or bin/gawky [organization name]
+    $ gawky or gawky [organization name]
 
 ## Contributing
 
