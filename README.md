@@ -12,7 +12,7 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install --local gawky.gemspec
+    $ gem install gawky
 
 Rename the sample.json file to gawky.json and copy to your HOME directory
 
