@@ -1,29 +1,31 @@
 # Gawky
 
-TODO: Write a gem description
+A tiny and simple console tool for pull requests
 
 ## Installation
 
-Add this line to your application's Gemfile:
-
-    gem 'gawky'
+Clone the repository
 
 And then execute:
 
-    $ bundle
+    $ bundle install
 
 Or install it yourself as:
 
-    $ gem install gawky
+    $ gem install --local gawky.gemspec
+
+Rename the sample.json file to gawky.json and copy to your HOME directory
 
 ## Usage
 
-TODO: Write usage instructions here
+$ bin/gawky or bin/gawky [organization name]
 
 ## Contributing
 
 1. Fork it ( https://github.com/[my-github-username]/gawky/fork )
 2. Create your feature branch (`git checkout -b my-new-feature`)
-3. Commit your changes (`git commit -am 'Add some feature'`)
-4. Push to the branch (`git push origin my-new-feature`)
-5. Create a new Pull Request
+3. Add unit tests, because yeah it's missing
+4. Commit your changes (`git commit -am 'Add some feature'`)
+5. Push to the branch (`git push origin my-new-feature`)
+6. Create a new Pull Request
+
