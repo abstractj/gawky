@@ -8,6 +8,14 @@ module Gawky
 
   @@configuration = JSON.load(IO.read(ENV['HOME'] + '/.gawky.json'))
 
+  if ARGV.empty?
+    puts "Please provide the organization name\n  Usage: gawky [organization]"
+    exit
+  end
+
+  def organization
+    ARGV.first
+  end
   def self.github
     Github.new oauth_token: @@configuration['token']
   end

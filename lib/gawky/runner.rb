@@ -4,12 +4,11 @@ module Gawky
     def initialize
       @date_now = Date.today
     end
-
     def run
-      repos = Gawky.github.repos.list org: ARGV[0], per_page: 100
+      repos = Gawky.github.repos.list org: Gawky.organization, per_page: 100
       repos.each do |repo|
         if repo.open_issues_count > 0
-          pulls = Gawky.github.pull_requests.list user: ARGV[0], repo: repo.name
+          pulls = Gawky.github.pull_requests.list user: Gawky.organization, repo: repo.name
           pulls.each do |pull|
             date = DateTime.parse(pull.created_at)
             if elapsed_time(date) > Gawky.max_elapsed_days
