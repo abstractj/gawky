@@ -1,6 +1,6 @@
 require 'gawky/version'
 require 'github_api'
-require 'color'
+require 'status'
 require 'json'
 
 
@@ -8,24 +8,31 @@ module Gawky
 
   class Runner
 
-    configuration = JSON.load(IO.read(ENV['HOME'] + '/.gawky.json'))
-    @@date_now = Date.today
-    @@github = Github.new oauth_token: configuration['token']
-    @@acceptable = configuration['maxElapsedDays']
+    def initialize
+      @date_now = Date.today
+      configuration = JSON.load(IO.read(ENV['HOME'] + '/.gawky.json'))
+      @github = Github.new oauth_token: configuration['token']
+      @acceptable = configuration['maxElapsedDays']
+    end
+
 
     def run
-      issues = @@github.issues.list(:org => ARGV[0], :filter => 'all', :auto_pagination => true, :sort => 'created')
+      issues = @github.issues.list(:org => ARGV[0], :filter => 'all', :auto_pagination => true, :sort => 'created')
       issues.each do |issue|
-        if issue["pull_request"]
+        if issue['pull_request']
           date = DateTime.parse(issue.created_at)
-          days_passed = (@@date_now - date).to_i
-          if days_passed > @@acceptable
-            puts Color.new(date, issue.user.login, issue.title, issue.html_url).warning
+          if elapsed_time(date) > @acceptable
+            puts Status.new(date, issue).warning
           else
-            puts Color.new(date, issue.user.login, issue.title, issue.html_url).green
+            puts Status.new(date, issue).green
           end
         end
       end
+    end
+
+    private
+    def elapsed_time(date)
+      (@date_now - date).to_i
     end
   end
 end
