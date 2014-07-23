@@ -33,6 +33,8 @@ Please make sure to change the values:
        "maxElapsedDays":5
     }
 
+See [github article](https://help.github.com/articles/creating-an-access-token-for-command-line-use) to create a Github token
+
 ## Usage
 
     $ gawky [organization name]
