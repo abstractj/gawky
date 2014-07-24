@@ -12,15 +12,11 @@ A tiny and simple console tool for pull requests
 
 ## Installation
 
-Clone the repository
-
-And then execute:
-
-    $ bundle install
-
-Or install it yourself as:
-
     $ [sudo] gem install gawky
+
+Or if you want the latest changes
+
+    $ [sudo] gem install gawky --pre
 
 Copy the sample.json file to gawky.json at your HOME directory
 
@@ -33,7 +29,7 @@ Please make sure to change the values:
        "maxElapsedDays":5
     }
 
-See [github article](https://help.github.com/articles/creating-an-access-token-for-command-line-use) to create a Github token
+See [github article](https://help.github.com/articles/creating-an-access-token-for-command-line-use) about how to create the Github token
 
 ## Usage
 
