@@ -24,9 +24,19 @@ module Gawky
         end
       end
 
-      if ARGV[1] == "stats"
-        puts @stats.sort {|a,b| b[:forks] <=> a[:forks]}
+      if ARGV[1] == "forks"
+        stats = @stats.sort {|a,b| b[:forks] <=> a[:forks]}
+        stats.each do |repo|
+          puts "Repository: #{repo[:name]} - forks: #{repo[:forks]} - watchers: #{repo[:watchers]}"
+        end
       end
+      if ARGV[1] == "watchers"
+        stats = @stats.sort {|a,b| b[:watchers] <=> a[:watchers]}
+        stats.each do |repo|
+          puts "Repository: #{repo[:name]} - watchers: #{repo[:watchers]} - forks: #{repo[:forks]}"
+        end
+      end
+
     end
 
     private
