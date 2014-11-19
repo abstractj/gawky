@@ -5,12 +5,12 @@ module Gawky
       @date_now = Date.today
     end
     def run
-      @stats = {}
+      @stats = []
       repos = Gawky.github.repos.list org: Gawky.organization, per_page: 100
       repos.each do |repo|
 
         if ARGV[1] == "stats"
-           @stats[repo.name] = {:watchers => repo.watchers, :forks => repo.forks}
+           @stats << {:name => repo.name, :watchers => repo.watchers, :forks => repo.forks}
         elsif repo.open_issues_count > 0
           pulls = Gawky.github.pull_requests.list user: Gawky.organization, repo: repo.name
           pulls.each do |pull|
@@ -23,6 +23,7 @@ module Gawky
           end
         end
       end
+      puts @stats.sort_by {|s| s[:forks]}
     end
     private
 
@@ -31,4 +32,3 @@ module Gawky
     end
   end
 end
-
