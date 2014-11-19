@@ -5,9 +5,13 @@ module Gawky
       @date_now = Date.today
     end
     def run
+      @stats = {}
       repos = Gawky.github.repos.list org: Gawky.organization, per_page: 100
       repos.each do |repo|
-        if repo.open_issues_count > 0
+
+        if ARGV[1] == "stats"
+           @stats[repo.name] = {:watchers => repo.watchers, :forks => repo.forks}
+        elsif repo.open_issues_count > 0
           pulls = Gawky.github.pull_requests.list user: Gawky.organization, repo: repo.name
           pulls.each do |pull|
             date = DateTime.parse(pull.created_at)
@@ -20,7 +24,6 @@ module Gawky
         end
       end
     end
-
     private
 
     def elapsed_time(date)
