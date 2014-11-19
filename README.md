@@ -34,6 +34,12 @@ See [github article](https://help.github.com/articles/creating-an-access-token-f
 ## Usage
 
     $ gawky [organization name]
+    
+### Stats
+
+    $ gawky [organization name] forks - display the number of forks
+    $ gawky [organization name] watchers - display the number of watchers
+    
 
 ## Contributing
 
