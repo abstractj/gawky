@@ -4,6 +4,7 @@ module Gawky
     def initialize
       @date_now = Date.today
     end
+
     def run
       @stats = []
       repos = Gawky.github.repos.list org: Gawky.organization, per_page: 100
@@ -23,13 +24,12 @@ module Gawky
         end
       end
 
-        if ARGV[1] == "stats"
-          puts @stats.sort_by {|s| s[:forks]}
-        end
-
+      if ARGV[1] == "stats"
+        puts @stats.sort {|a,b| b[:forks] <=> a[:forks]}
       end
-      private
+    end
 
+    private
     def elapsed_time(date)
       (@date_now - date).to_i
     end
